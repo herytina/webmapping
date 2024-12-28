@@ -1,6 +1,7 @@
 <template>
-  <Header />
-  <HelloWorld />
+  <!-- <Header /> -->
+  <Authentification />
+  <!-- <HelloWorld /> -->
 </template>
 
 <script lang="ts" setup>
