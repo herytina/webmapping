@@ -49,16 +49,6 @@
         @click:append-inner="show = !show"
       />
 
-      <v-card
-        class="mb-12"
-        color="surface-variant"
-        variant="tonal"
-      >
-        <v-card-text class="text-medium-emphasis text-caption">
-          Warning: After 3 consecutive failed login attempts, you account will be temporarily locked for three hours. If you must login now, you can also click "Forgot login password?" below to reset the login password.
-        </v-card-text>
-      </v-card>
-
       <v-btn
         class="mb-8"
         color="blue"
@@ -67,7 +57,7 @@
         block
         @click="connected"
       >
-        Log In
+        Se connecter
       </v-btn>
 
       <v-card-text class="text-center">
@@ -86,13 +76,15 @@
 
 <script setup lang="ts">
   import { ref } from 'vue';
+  // import connectIn from '@/utils/api';
   const load = ref(false)
   const show = ref(false)
   const mail = ref('')
   const pwd = ref('')
-  function connected() {
+  function connected(): boolean {
     load.value = true
     console.log(mail.value, pwd.value);
+    return true
   }
 
   function required (v: string) {
