@@ -1,5 +1,5 @@
-import apiClient from '@/const/axios';
 import type { IUser } from '@/models/User';
+import { AuthAPI } from '@/utils/api';
 import { defineStore } from 'pinia';
 
 export const useUserStore = defineStore('user', {
@@ -16,7 +16,7 @@ export const useUserStore = defineStore('user', {
 
     async getCurrentUser() {
       try {
-        const connectedUser = await apiClient.get('me');
+        const connectedUser = await AuthAPI.getCurrentUser();
         this.user = connectedUser.data?.data[0];
         return this.user;
       } catch (error) {
